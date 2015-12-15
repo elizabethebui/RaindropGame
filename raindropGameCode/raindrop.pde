@@ -26,7 +26,7 @@ class Raindrop {
   void reset(){
     loc.y = 0; 
     loc.x = (random(0,width));
-    vel = new PVector(0, 1);
+    vel = new PVector(0, 0.5);
   }
   
   boolean isInContactWith(PVector mouse){

@@ -1,10 +1,7 @@
 PVector mouse;   //declare a P
 int count = 5;
 Raindrop[] r = new Raindrop[count]; 
-// On your own, create an array of Raindrop objects instead of just one
-// Use the array instead of the single object
-// You can start out by just using the single Raindrop as you test
-
+Catcher bucket; 
 
 void setup() {
    size(1200, 800);
@@ -12,11 +9,13 @@ void setup() {
    for (int i = 0; i < count; i++){
      r[i] = new Raindrop(random(0,width),0);
    }
+   bucket = new Catcher(120);
  }
 
 void draw() {
   mouse.set(mouseX, mouseY);             //set value of mouse as mouseX,mouseY
   background(0, 200, 255);
+  bucket.display();
   
   for (int i =0; i < count; i++){
   r[i].fall();         //make the raindrop fall. It should accelerate as if pulled towards the ground by earth's gravity
