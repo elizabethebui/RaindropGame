@@ -1,5 +1,5 @@
 PVector mouse;   //declare a P
-int count = 5;
+int count = 4;
 ArrayList<Raindrop> rn = new ArrayList<Raindrop>(); 
 Catcher bucket; 
 int lives; 
