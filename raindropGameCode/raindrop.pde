@@ -5,7 +5,7 @@ class Raindrop {
 
   Raindrop(PVector pos){
     diam = 90; 
-    gravity = new PVector(0, 1.2);
+    gravity = new PVector(0, 0.5);
     loc = pos;
     vel = new PVector(0, 1.2);
     c = color(0, 0, random(100, 255));
@@ -36,6 +36,4 @@ class Raindrop {
     return true; 
       } else return false; 
     }
-   
-  } 
-  
+}

@@ -28,9 +28,5 @@ void draw() {
     }
   }
   
-  }
-  textSize(20); //scoreboard 
-  textAlign(CENTER); 
-  text("Score", 350,50);
-  text(paddlescore, 175, 100);
+  
 }
