@@ -3,8 +3,11 @@ int count = 4;
 ArrayList<Raindrop> rn = new ArrayList<Raindrop>(); 
 Catcher bucket; 
 int lives; 
+int stage;
 
 void setup() {
+  stage = 1;
+  background(0,0,0);
    size(1200, 800);
    mouse = new PVector();                //initialize mouse PVector. value is irrelevant since it will be set at the start of void draw(){}
    rn.add(new Raindrop(new PVector(width/2,0)));
@@ -12,6 +15,17 @@ void setup() {
  }
 
 void draw() {
+  if(stage==1){
+  textAlign(CENTER);
+  textSize(50);
+  fill(100,100,100);
+  text("Catch the apples!", 600,400);
+  text("Press any key to begin.", 600,700);
+    if(keyPressed==true){
+    stage = 2;
+    }
+  }
+  if(stage==2){
   mouse.set(mouseX, mouseY);             //set value of mouse as mouseX,mouseY
   background(0, 200, 255);
   bucket.display();
@@ -29,4 +43,5 @@ void draw() {
   }
   
   
+}
 }
