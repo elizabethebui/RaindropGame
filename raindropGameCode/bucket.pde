@@ -3,11 +3,12 @@ class Catcher{
   PImage isaac;
   
   Catcher(float x, float y){
-  pos = new PVector(mouseX,height-300);
+  pos = new PVector(mouseX,height-150);
   isaac = loadImage("isaacnewton.png");
 }
 
  void display(){
-  image(isaac, mouseX-200, pos.y);
+  imageMode(CENTER);
+  image(isaac, mouseX, pos.y);
   }
 }

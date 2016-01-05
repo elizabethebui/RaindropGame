@@ -14,16 +14,16 @@ void setup() {
    size(1200, 800);
    isaac = new PVector();       
    rn.add(new Apple(new PVector(width/2,0)));
-   bucket = new Catcher(mouseX, height - 300);
+   bucket = new Catcher(mouseX, height - 400);
  }
 
 void draw() {
   if(stage==1){
-    isaac.set(mouseX, height - 300);
+
   textAlign(CENTER);
-  textSize(50);
+  textSize(30);
   fill(100,100,100);
-  text("Help Isaac catch the apples!", 600,400);
+  text("Help Isaac catch the apples! Aim at his mouth!", 600,400);
   text("Press any key to begin.", 600,700);
     if(keyPressed==true){
     stage = 2;
@@ -31,7 +31,7 @@ void draw() {
   }
  
  if(stage==2){
-  isaac.set(mouseX, mouseY);             //set value of mouse as mouseX,mouseY
+  isaac.set(mouseX, height - 150); 
   background(0, 200, 255);
   bucket.display();
  
