@@ -5,7 +5,7 @@ class Apple { //creates apple class
   Apple(PVector pos){ //initialize apple class 
     gravity = new PVector(0, 0.5);
     loc = pos;
-    vel = new PVector(0, 1.2);
+    vel = new PVector(0, 0.5);
     apple = loadImage("apple.png"); //load apple image
     apple.resize(80,80); //resize the apple image to fit accordingly
   }
