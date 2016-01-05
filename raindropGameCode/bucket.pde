@@ -1,14 +1,13 @@
 class Catcher{
-  PVector loc; 
-  float diam; 
+  PVector pos; 
+  PImage isaac;
   
-  Catcher(float width){
-  diam = width;
-  loc = new PVector(mouseX,mouseY);
+  Catcher(float x, float y){
+  pos = new PVector(mouseX,height-300);
+  isaac = loadImage("isaacnewton.png");
 }
 
  void display(){
-  loc = new PVector(mouseX,mouseY);
-   ellipse(loc.x, loc.y, diam, diam); 
+  image(isaac, mouseX-200, pos.y);
   }
 }

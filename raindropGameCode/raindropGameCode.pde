@@ -1,6 +1,6 @@
-PVector mouse;   
-int count = 4;
-ArrayList<Raindrop> rn = new ArrayList<Raindrop>(); 
+PVector isaac;   
+int count = 6;
+ArrayList<Apple> rn = new ArrayList<Apple>(); 
 Catcher bucket; 
 int lives; 
 int score;
@@ -12,17 +12,18 @@ void setup() {
   score = 0;
   background(0,0,0);
    size(1200, 800);
-   mouse = new PVector();       
-   rn.add(new Raindrop(new PVector(width/2,0)));
-   bucket = new Catcher(120);
+   isaac = new PVector();       
+   rn.add(new Apple(new PVector(width/2,0)));
+   bucket = new Catcher(mouseX, height - 300);
  }
 
 void draw() {
   if(stage==1){
+    isaac.set(mouseX, height - 300);
   textAlign(CENTER);
   textSize(50);
   fill(100,100,100);
-  text("Catch the apples!", 600,400);
+  text("Help Isaac catch the apples!", 600,400);
   text("Press any key to begin.", 600,700);
     if(keyPressed==true){
     stage = 2;
@@ -30,7 +31,7 @@ void draw() {
   }
  
  if(stage==2){
-  mouse.set(mouseX, mouseY);             //set value of mouse as mouseX,mouseY
+  isaac.set(mouseX, mouseY);             //set value of mouse as mouseX,mouseY
   background(0, 200, 255);
   bucket.display();
  
@@ -44,16 +45,16 @@ void draw() {
   text(score, 3*width/4 + 50, height - height/4);
     
     for (int i = 0; i < rn.size(); i++) {
-      Raindrop r = rn.get(i);
+      Apple r = rn.get(i);
       r.fall();     
       r.display(); 
     
-    if (r.loc.y > height + r.diam/2) {
+    if (r.loc.y > height) {
       r.reset();
       lives = lives - 1;
     }
    
-    if (r.isInContactWith(mouse,bucket.diam)) {
+    if (r.isInContactWith(isaac)) {
       r.reset();
       score = score + 1;
       }  

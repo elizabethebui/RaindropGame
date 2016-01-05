@@ -1,20 +1,18 @@
-class Raindrop {
+class Apple {
   PVector loc, vel, gravity; 
-  int diam; 
-  color c;
-
-  Raindrop(PVector pos){
-    diam = 90; 
+  PImage apple;
+  
+  Apple(PVector pos){
     gravity = new PVector(0, 0.5);
     loc = pos;
     vel = new PVector(0, 1.2);
-    c = color(0, 0, random(100, 255));
+    apple = loadImage("apple.png");
+    apple.resize(80,80);
   }
   
   void display(){
-    fill(c);
     noStroke();
-    ellipse(loc.x,loc.y, diam, diam);
+   image(apple, loc.x, loc.y);
   }
   
   void fall(){
@@ -23,16 +21,14 @@ class Raindrop {
   }
   
   void reset(){
-    diam = 90;
     loc.y = 0; 
     loc.x = (random(0,width));
     vel = new PVector(0, 0.5);
-    c = color(0, 0, random(100, 255));
     vel.mult(10);
   }
   
-  boolean isInContactWith(PVector mouse, float bdiam){
-    if(loc.dist(mouse) < diam/2 + bdiam/2){
+  boolean isInContactWith(PVector isaac){
+    if(loc.dist(isaac) < 50){
     return true; 
       } else return false; 
     }
