@@ -1,4 +1,4 @@
-PVector mouse;   //declare a P
+PVector mouse;   
 int count = 4;
 ArrayList<Raindrop> rn = new ArrayList<Raindrop>(); 
 Catcher bucket; 
@@ -9,7 +9,7 @@ void setup() {
   stage = 1;
   background(0,0,0);
    size(1200, 800);
-   mouse = new PVector();                //initialize mouse PVector. value is irrelevant since it will be set at the start of void draw(){}
+   mouse = new PVector();       
    rn.add(new Raindrop(new PVector(width/2,0)));
    bucket = new Catcher(120);
  }
@@ -25,23 +25,24 @@ void draw() {
     stage = 2;
     }
   }
-  if(stage==2){
+ 
+ if(stage==2){
   mouse.set(mouseX, mouseY);             //set value of mouse as mouseX,mouseY
   background(0, 200, 255);
   bucket.display();
     
     for (int i = 0; i < rn.size(); i++) {
-    Raindrop r = rn.get(i);
-    r.fall();     
-    r.display(); 
+      Raindrop r = rn.get(i);
+      r.fall();     
+      r.display(); 
+    
     if (r.loc.y > height + r.diam/2) {
       r.reset();
     }
+   
     if (r.isInContactWith(mouse,bucket.diam)) {
       r.reset();
+      }  
     }
   }
-  
-  
-}
 }
